@@ -2,14 +2,15 @@
 
 PyTorch implementation of **Fractional-order Flow Matching (FoFM)**.
 
-FoFM extends standard Flow Matching by replacing the integer-order probability path with a Caputo fractional ODE. For fractional order `α`:
+FoFM extends standard Flow Matching by replacing the integer-order probability path with a Caputo fractional ODE. For fractional order $\alpha$, the probability path is defined as
 
-```
-xt = x0 + (x1 - x0) * t^α
-ut = Γ(1 + α) * (x1 - x0)
-```
+$$x_t = x_0 + (x_1 - x_0) \, t^\alpha$$
 
-When `α = 1.0`, FoFM reduces to standard Conditional Flow Matching. Sampling for `α ≠ 1.0` uses a discrete Caputo fractional integrator.
+which yields the Caputo fractional derivative
+
+$${}_0^C D_t^\alpha x_t = \Gamma(1 + \alpha) \cdot (x_1 - x_0)$$
+
+When $\alpha = 1.0$, FoFM reduces to standard Conditional Flow Matching. Sampling for $\alpha \neq 1.0$ uses a discrete Caputo fractional integrator.
 
 ## Repository Structure
 
@@ -24,7 +25,8 @@ FoFM/
 ├── minist/               # Conditional MNIST generation
 │   └── Caputo_mi_FID_Condition_5M.py
 ├── requirements.txt
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
 ## Quick Start
